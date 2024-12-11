@@ -189,6 +189,13 @@ public class Map2D {
         }
     }
 
+    public IEnumerable<Point2D> Neighbors(Point2D p) {
+        if (p.Row > 0) yield return (p.Row - 1, p.Col);
+        if (p.Col + 1 < Width) yield return (p.Row, p.Col + 1);
+        if (p.Row +1 < Height) yield return (p.Row + 1, p.Col);
+        if (p.Col > 0) yield return (p.Row, p.Col - 1);
+    }
+
     public void Print() {
         for (var row = 0; row < Height; row++) {
             Console.WriteLine(new string(GetRow(row)));
