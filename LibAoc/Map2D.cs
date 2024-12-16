@@ -6,6 +6,9 @@ public record struct Point2D(long Row, long Col) {
         return new Point2D(Row + dRow * count, Col + dCol * count);
     }
 
+    public long X => Row;
+    public long Y => Col;
+
     public Point2D Add(Point2D p) {
         return new Point2D(Row + p.Row, Col + p.Col);
     }
@@ -229,6 +232,10 @@ public static class Map2DExtensions {
             'R' => Direction.R,
             'D' => Direction.D,
             'L' => Direction.L,
+            '^' => Direction.U,
+            '>' => Direction.R,
+            'v' => Direction.D,
+            '<' => Direction.L,
             _ => throw new ArgumentOutOfRangeException(nameof(c), c, $"Invalid Direction: {c}"),
         };
     }
