@@ -192,6 +192,10 @@ public class Map2D {
         }
     }
 
+    public Point2D Find(char c) {
+        return Positions().First(p => this[p] == c);
+    }
+
     public IEnumerable<Point2D> Neighbors(Point2D p) {
         if (p.Row > 0) yield return (p.Row - 1, p.Col);
         if (p.Col + 1 < Width) yield return (p.Row, p.Col + 1);
